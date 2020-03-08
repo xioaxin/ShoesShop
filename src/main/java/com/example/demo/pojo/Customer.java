@@ -49,6 +49,18 @@ public class Customer implements Serializable {
      * 顾客注册电子邮箱
      */
     private String customeremail;
+    /**
+     * 顾客密码
+     */
+    private String customerpassword;
+
+    public String getCustomerpassword() {
+        return customerpassword;
+    }
+
+    public void setCustomerpassword(String customerpassword) {
+        this.customerpassword = customerpassword;
+    }
 
     private static final long serialVersionUID = 1L;
 
@@ -129,13 +141,15 @@ public class Customer implements Serializable {
         }
         Customer other = (Customer) that;
         return (this.getCustomerid() == null ? other.getCustomerid() == null : this.getCustomerid().equals(other.getCustomerid()))
-            && (this.getCustomername() == null ? other.getCustomername() == null : this.getCustomername().equals(other.getCustomername()))
-            && (this.getCustomersex() == null ? other.getCustomersex() == null : this.getCustomersex().equals(other.getCustomersex()))
-            && (this.getCustomerbirthday() == null ? other.getCustomerbirthday() == null : this.getCustomerbirthday().equals(other.getCustomerbirthday()))
-            && (this.getCustomerphone() == null ? other.getCustomerphone() == null : this.getCustomerphone().equals(other.getCustomerphone()))
-            && (this.getCustomeraddr() == null ? other.getCustomeraddr() == null : this.getCustomeraddr().equals(other.getCustomeraddr()))
-            && (this.getCustomerpostnumber() == null ? other.getCustomerpostnumber() == null : this.getCustomerpostnumber().equals(other.getCustomerpostnumber()))
-            && (this.getCustomeremail() == null ? other.getCustomeremail() == null : this.getCustomeremail().equals(other.getCustomeremail()));
+                && (this.getCustomername() == null ? other.getCustomername() == null : this.getCustomername().equals(other.getCustomername()))
+                && (this.getCustomersex() == null ? other.getCustomersex() == null : this.getCustomersex().equals(other.getCustomersex()))
+                && (this.getCustomerbirthday() == null ? other.getCustomerbirthday() == null : this.getCustomerbirthday().equals(other.getCustomerbirthday()))
+                && (this.getCustomerphone() == null ? other.getCustomerphone() == null : this.getCustomerphone().equals(other.getCustomerphone()))
+                && (this.getCustomeraddr() == null ? other.getCustomeraddr() == null : this.getCustomeraddr().equals(other.getCustomeraddr()))
+                && (this.getCustomerpostnumber() == null ? other.getCustomerpostnumber() == null : this.getCustomerpostnumber().equals(other.getCustomerpostnumber()))
+                && (this.getCustomeremail() == null ? other.getCustomeremail() == null : this.getCustomeremail().equals(other.getCustomeremail()))
+                && (this.getCustomeremail() == null ? other.getCustomerpassword() == null : this.getCustomerpassword().equals(other.getCustomerpassword()));
+
     }
 
     @Override
@@ -150,6 +164,8 @@ public class Customer implements Serializable {
         result = prime * result + ((getCustomeraddr() == null) ? 0 : getCustomeraddr().hashCode());
         result = prime * result + ((getCustomerpostnumber() == null) ? 0 : getCustomerpostnumber().hashCode());
         result = prime * result + ((getCustomeremail() == null) ? 0 : getCustomeremail().hashCode());
+        result = prime * result + ((getCustomerpassword() == null) ? 0 : getCustomerpassword().hashCode());
+
         return result;
     }
 
@@ -167,6 +183,7 @@ public class Customer implements Serializable {
         sb.append(", customeraddr=").append(customeraddr);
         sb.append(", customerpostnumber=").append(customerpostnumber);
         sb.append(", customeremail=").append(customeremail);
+        sb.append(", customerpassword=").append(customerpassword);
         sb.append(", serialVersionUID=").append(serialVersionUID);
         sb.append("]");
         return sb.toString();
