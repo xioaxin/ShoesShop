@@ -1,7 +1,11 @@
 package com.example.demo.mappers;
 
+import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
 import com.example.demo.pojo.Roles;
+
+import javax.management.relation.Role;
+import java.util.List;
 
 /**
  * @Description:
@@ -10,6 +14,7 @@ import com.example.demo.pojo.Roles;
  * @version: 1.0
  */
 public interface RolesMapper extends BaseMapper<Roles> {
+    List<Roles> selectList(QueryWrapper<Role> queryWrapper);
 }
 
 

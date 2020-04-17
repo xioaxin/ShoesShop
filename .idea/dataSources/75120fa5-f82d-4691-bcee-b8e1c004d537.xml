@@ -1153,7 +1153,7 @@
     <table id="292" parent="12" name="customer_roles">
       <Comment>顾客和角色关联表</Comment>
     </table>
-    <table id="293" parent="12" name="customerroles">
+    <table id="293" parent="12" name="roles">
       <Comment>顾客角色类型表</Comment>
     </table>
     <column id="294" parent="291" name="customerId">
@@ -1206,42 +1206,48 @@
       <DataType>varchar(32)|0s</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <key id="302" parent="291" name="PRIMARY">
+    <column id="302" parent="291" name="customerPassword">
+      <Position>9</Position>
+      <Comment>顾客密码</Comment>
+      <DataType>varchar(32)|0s</DataType>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <key id="303" parent="291" name="PRIMARY">
       <NameSurrogate>1</NameSurrogate>
       <ColNames>customerId</ColNames>
       <Primary>1</Primary>
     </key>
-    <column id="303" parent="292" name="customerID">
+    <column id="304" parent="292" name="customerID">
       <Position>1</Position>
       <Comment>顾客信息ID</Comment>
       <DataType>int(11)|0s</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="304" parent="292" name="rolesID">
+    <column id="305" parent="292" name="rolesID">
       <Position>2</Position>
       <Comment>角色信息编号</Comment>
       <DataType>int(11)|0s</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <index id="305" parent="292" name="customerID">
+    <index id="306" parent="292" name="customerID">
       <ColNames>customerID</ColNames>
       <Type>btree</Type>
     </index>
-    <index id="306" parent="292" name="rolesID">
+    <index id="307" parent="292" name="rolesID">
       <ColNames>rolesID</ColNames>
       <Type>btree</Type>
     </index>
-    <foreign-key id="307" parent="292" name="customer_roles_ibfk_1">
+    <foreign-key id="308" parent="292" name="customer_roles_ibfk_1">
       <ColNames>customerID</ColNames>
       <RefTableName>customer</RefTableName>
       <RefColNames>customerId</RefColNames>
     </foreign-key>
-    <foreign-key id="308" parent="292" name="customer_roles_ibfk_2">
+    <foreign-key id="309" parent="292" name="customer_roles_ibfk_2">
       <ColNames>rolesID</ColNames>
-      <RefTableName>customerroles</RefTableName>
+      <RefTableName>roles</RefTableName>
       <RefColNames>rolesID</RefColNames>
     </foreign-key>
-    <column id="309" parent="293" name="rolesID">
+    <column id="310" parent="293" name="rolesID">
       <Position>1</Position>
       <Comment>角色编号</Comment>
       <DataType>int(11)|0s</DataType>
@@ -1249,13 +1255,13 @@
       <SequenceIdentity>1</SequenceIdentity>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="310" parent="293" name="rolesName">
+    <column id="311" parent="293" name="rolesName">
       <Position>2</Position>
       <Comment>顾客角色名称</Comment>
       <DataType>varchar(32)|0s</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <key id="311" parent="293" name="PRIMARY">
+    <key id="312" parent="293" name="PRIMARY">
       <NameSurrogate>1</NameSurrogate>
       <ColNames>rolesID</ColNames>
       <Primary>1</Primary>

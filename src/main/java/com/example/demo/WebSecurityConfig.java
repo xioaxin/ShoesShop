@@ -2,6 +2,7 @@
 //
 //import com.example.demo.Check.KaptchaFilter;
 //import com.example.demo.demo1.CustomUserDetailsService;
+//import com.example.demo.services.CustomerAndRolesService;
 //import com.example.demo.utils.MD5Util;
 //import org.springframework.beans.factory.annotation.Autowired;
 //import org.springframework.context.annotation.Configuration;
@@ -12,11 +13,11 @@
 //import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
 //import org.springframework.security.crypto.password.PasswordEncoder;
 //import org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter;
+//import sun.security.rsa.RSASignature;
 //
 ///**
-// * Description  TODO
+// * Description
 // * SpringSecurity 类的配置（登陆的拦截、和
-// *
 // * @Author ZPX
 // * @Date Created in 2019-11-22 23:25
 // * @Version 1.0
@@ -25,11 +26,11 @@
 //@EnableGlobalMethodSecurity(prePostEnabled = true)
 //public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 //    @Autowired
-//    private CustomUserDetailsService userDetailsService;
+//    private CustomerAndRolesService customerAndRolesService;
 //
 //    @Override
 //    protected void configure(AuthenticationManagerBuilder auth) throws Exception {
-//        auth.userDetailsService(userDetailsService).passwordEncoder(new PasswordEncoder() {
+//        auth.userDetailsService(customerAndRolesService).passwordEncoder(new PasswordEncoder() {
 //            @Override
 //            public String encode(CharSequence charSequence) {
 //                return charSequence.toString();
@@ -37,7 +38,7 @@
 //
 //            @Override
 //            public boolean matches(CharSequence charSequence, String s) {
-//                return s.equals(MD5Util.encode(charSequence.toString()));
+//                return s.equals(RSASignature.MD5withRSA(charSequence.toString()));
 //            }
 //        });
 //    }
@@ -53,7 +54,7 @@
 //                .formLogin().loginPage("/login")
 //                // 设置登陆成功页
 //                // 自定义登陆用户名和密码参数，默认为username和password
-////                .usernameParameter("username")
+//               .usernameParameter("username")
 //                .passwordParameter("password")
 //                .failureUrl("/login?error=true")
 //                .defaultSuccessUrl("/index").permitAll()

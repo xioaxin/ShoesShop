@@ -3,10 +3,7 @@ package com.example.demo.controllers;
 import com.alibaba.fastjson.JSONObject;
 import com.example.demo.pojo.Customer;
 import com.example.demo.services.CustomerService;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
 
 import javax.annotation.Resource;
@@ -17,7 +14,9 @@ import javax.annotation.Resource;
  * @createDate: 2020/3/7 12:51
  * @version: 1.0
  */
-@RestController(value = "customer")
+
+@RequestMapping(value = "customer")
+@ResponseBody
 public class CustomerController {
     @Resource
     private CustomerService customerService;
